@@ -3,6 +3,7 @@ package com.quickkart.orderservice.service;
 import com.quickkart.orderservice.model.Order;
 import com.quickkart.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,8 @@ public class OrderService {
         return orderRepository.findByUserId(userId);
     }
 
-    public Order createOrder(Order order) {
+    @NonNull
+    public Order createOrder(@NonNull Order order) {
         return orderRepository.save(order);
     }
 
